@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso Online: Valuación Aumentada con NotebookLM | EVMC</title>
+  <meta name="description" content="Curso internacional online sobre Valuación Aumentada con NotebookLM (Gemini Notebook) dictado por el Prof. Ing. Miguel Camacaro Pérez, M.Sc.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #070c18;
+      --bg-card: #0f172a;
+      --border-card: rgba(255, 255, 255, 0.12);
+      --royal-blue: #0070ba;
+      --accent-red: #991b1b;
+      --accent-red-hover: #b91c1c;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-title: 'Cinzel', serif;
+      --font-reading: 'Literata', Georgia, serif;
+      --font-ui: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-image: linear-gradient(rgba(7, 12, 24, 0.96), rgba(7, 12, 24, 0.98)), url('83615be8.png');
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      line-height: 1.6;
+      overflow-x: hidden;
+      text-align: justify;
+    }
+
+    .container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Top Navigation Bar */
+    header {
+      background: rgba(7, 12, 24, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-card);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 0.75rem 0;
+      text-align: left;
+    }
+
+    .nav-wrap { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; }
+    .brand-logo-left, .brand-logo-right { display: flex; align-items: center; text-decoration: none; }
+
+    .logo-container {
+      background: #ffffff;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 2px solid var(--accent-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    .logo-container img { height: 50px; width: auto; object-fit: contain; display: block; }
+
+    .nav-center { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+    .nav-center a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color 0.2s; }
+    .nav-center a:hover { color: #fca5a5; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem;
+      border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer;
+      text-decoration: none; transition: all 0.2s ease; border: none; text-align: center;
+    }
+    .btn-red { background: linear-gradient(135deg, #7f1d1d, var(--accent-red)); color: #ffffff; box-shadow: 0 4px 15px rgba(153, 27, 27, 0.4); }
+    .btn-red:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(185, 28, 28, 0.6); background: linear-gradient(135deg, var(--accent-red), var(--accent-red-hover)); }
+    .btn-donate { background: linear-gradient(135deg, #1d4ed8, #2563eb); color: #ffffff; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); border: 1px solid rgba(255, 255, 255, 0.25); }
+    .btn-donate:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6); }
+
+    /* Hero / Portada del Curso */
+    .hero {
+      padding: 5rem 0 4.5rem;
+      background: radial-gradient(circle at 50% 10%, rgba(23, 37, 84, 0.5) 0%, transparent 80%);
+      border-bottom: 1px solid var(--border-card);
+      text-align: left;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center; }
+    .badge-editorial {
+      display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(153, 27, 27, 0.15);
+      border: 1px solid rgba(153, 27, 27, 0.4); padding: 0.35rem 1rem; border-radius: 999px;
+      font-size: 0.8rem; font-weight: 700; color: #fca5a5; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .hero-title { font-family: var(--font-title); font-size: clamp(2.2rem, 4.2vw, 3.4rem); line-height: 1.2; margin-bottom: 1.2rem; color: #ffffff; }
+    .hero-title span { color: #60a5fa; }
+    .hero-lead { font-family: var(--font-reading); font-size: 1.12rem; color: #cbd5e1; margin-bottom: 2rem; line-height: 1.8; text-align: justify; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .hero-banner-card {
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px; padding: 1.5rem; text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(0, 112, 186, 0.25);
+    }
+    .hero-banner-card img { width: 100%; height: auto; border-radius: 14px; display: block; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+
+    /* Secciones Generales */
+    .section-block { padding: 4.5rem 0; border-bottom: 1px solid var(--border-card); text-align: left; }
+    .section-head { text-align: center; margin-bottom: 3rem; }
+    .section-head h2 { font-family: var(--font-title); font-size: 2.2rem; color: #fff; margin-bottom: 0.5rem; }
+
+    /* GRILLA EXACTAMENTE DE 2 COLUMNAS PARA QUE SE VEAN PERFECTAS LAS IMÁGENES */
+    .catalog-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+    @media (max-width: 768px) { .catalog-grid { grid-template-columns: 1fr; } }
+
+    .catalog-card {
+      background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 16px;
+      padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;
+      transition: all 0.25s ease; position: relative; overflow: hidden; text-align: left;
+    }
+    .catalog-card:hover { transform: translateY(-4px); border-color: var(--royal-blue); box-shadow: 0 10px 25px -5px rgba(0, 112, 186, 0.25); }
+    .item-badge {
+      position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(0, 112, 186, 0.2);
+      color: #60a5fa; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.7rem; border-radius: 999px; border: 1px solid rgba(0, 112, 186, 0.4);
+    }
+    .catalog-card h3 { font-size: 1.15rem; color: #fff; margin-bottom: 0.8rem; line-height: 1.3; padding-right: 4rem; }
+    .catalog-card p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5; text-align: justify; }
+
+    .card-thumbnail {
+      width: 100%; height: 260px; background: #1e293b; border-radius: 10px; margin-bottom: 1.2rem;
+      display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; position: relative;
+    }
+    .card-thumbnail img { width: 100%; height: 100%; object-fit: contain; display: block; background: #0b1329; }
+    .card-footer { display: flex; align-items: center; justify-content: flex-end; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.2rem; }
+
+    /* Video Container a 2 Columnas */
+    .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+    @media (max-width: 768px) { .video-grid { grid-template-columns: 1fr; } }
+
+    .video-showcase-card {
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 2rem;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(0, 112, 186, 0.2); text-align: center;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 12px; overflow: hidden; margin-bottom: 1.2rem; border: 1px solid rgba(255,255,255,0.1); }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+    /* Author Section (Sección 0) */
+    .author-card-centered {
+      background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px; padding: 3rem 2.5rem; max-width: 850px; margin: 0 auto; text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(153, 27, 27, 0.15);
+    }
+    .author-photo-xl {
+      width: 200px; height: 200px; border-radius: 50%; border: 3px solid var(--accent-red);
+      padding: 5px; margin: 0 auto 1.5rem; overflow: hidden; background: #070c18; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+    .author-photo-xl img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+    .author-card-centered h3 { font-family: var(--font-title); font-size: 1.6rem; color: #fff; margin-bottom: 0.4rem; }
+    .author-card-centered .subtitle { color: #60a5fa; font-weight: 700; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .author-quote { font-family: var(--font-reading); font-size: 1.05rem; color: #cbd5e1; line-height: 1.8; font-style: italic; text-align: justify; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border-card); padding: 3rem 0; text-align: center; color: var(--text-muted); font-size: 0.85rem; background: rgba(7, 12, 24, 0.95); }
+
+    /* Modal PDF Viewer */
+    .viewer-modal {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(7, 12, 24, 0.92); backdrop-filter: blur(10px); z-index: 1000;
+      align-items: center; justify-content: center; padding: 2rem;
+    }
+    .viewer-content {
+      background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 20px;
+      width: 100%; max-width: 1000px; height: 85vh; display: flex; flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9); overflow: hidden;
+    }
+    .viewer-header { padding: 1rem 1.5rem; background: #1e293b; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-card); }
+    .viewer-title { font-family: var(--font-title); font-size: 1.1rem; color: #fff; }
+    .viewer-close { background: rgba(255,255,255,0.1); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .viewer-close:hover { background: var(--accent-red); }
+    .viewer-body { flex: 1; width: 100%; background: #0f172a; }
+    .viewer-body iframe { width: 100%; height: 100%; border: none; }
+
+    @media (max-width: 950px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-btns { justify-content: center; }
+      .nav-center { display: none; }
+      body { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Institucional -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="#" class="brand-logo-left" title="Miguel Camacaro Ediciones">
+        <div class="logo-container">
+          <img src="LogoMCE_2.png" alt="Miguel Camacaro Ediciones" onerror="this.style.display='none'">
+        </div>
+      </a>
+
+      <nav class="nav-center">
+        <a href="#presentacion">Presentación</a>
+        <a href="#autor">Autor</a>
+        <a href="#videos">Videos</a>
+        <a href="#material">Material del Curso</a>
+        <a href="#lecturas">Lecturas y Apoyo</a>
+        <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">☕ Aportar / Donar</a>
+      </nav>
+
+      <a href="#" class="brand-logo-right" title="Mundo Valor">
+        <div class="logo-container">
+          <img src="Mundovalor_2.png" alt="Mundo Valor" onerror="this.style.display='none'">
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PORTADA / HERO -->
+    <section class="hero" id="presentacion">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge-editorial">Curso Internacional Online</span>
+          <h1 class="hero-title">Valuación Aumentada <span>con NotebookLM</span></h1>
+          <p class="hero-lead">
+            Potencia la valuación inmobiliaria integrando la inteligencia artificial de Gemini NotebookLM para la gestión experta de fuentes documentales y normativas.
+          </p>
+          <div class="hero-btns">
+            <a href="#videos" class="btn btn-red">▶ Ver Videos del Curso</a>
+            <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">☕ Aportar al Proyecto</a>
+          </div>
+        </div>
+
+        <div class="hero-banner-card">
+          <img src="Foto-Portada.jpg" alt="Portada Valuación Aumentada con NotebookLM" onerror="this.onerror=null; this.src='Foto-Portada.jpg';">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 0: PRESENTACIÓN DEL AUTOR -->
+    <section class="section-block" id="autor">
+      <div class="container">
+        <div class="section-head">
+          <h2>Presentación del Autor</h2>
+        </div>
+        <div class="author-card-centered">
+          <div class="author-photo-xl">
+            <img src="Foto_autor.png" alt="Prof. Ing. Miguel Camacaro Pérez, M.Sc." onerror="this.style.display='none'">
+          </div>
+          <h3>Prof. Ing. Miguel Camacaro Pérez, M.Sc.</h3>
+          <div class="subtitle">Ingeniero Civil - Tasador • Especialista en Ingeniería Legal y de Valuación</div>
+          <p class="author-quote">
+            «El profesor Miguel Camacaro Pérez cuenta con más de 40 años de trayectoria profesional en ingeniería y valuación de activos. Es autor, editor y traductor de libros técnicos, y se destaca como pionero internacional en la integración de la ciencia de la valuación, ciencia de datos e inteligencia artificial generativa aplicada a la tasación.»
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 1: VIDEOS DEL CURSO (7 Videos Completos) -->
+    <section class="section-block" id="videos">
+      <div class="container">
+        <div class="section-head">
+          <h2>Videos del Curso</h2>
+        </div>
+
+        <div class="video-grid">
+          <!-- Video 1 -->
+          <div class="video-showcase-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/Koh0iXACwUk" title="Presentación del curso Valuación Aumentada con NotebookLM" allowfullscreen></iframe>
+            </div>
+            <h3 style="font-family: var(--font-title); color: #fff; font-size: 1rem;">Presentación del curso “Valuación Aumentada con NotebookLM (Hoy Gemini Notebook)”</h3>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="video-showcase-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/Xt_Lm8_49HY" title="Valuación Aumentada con NotebookLM (Hoy GEMINI NotebookLM)" allowfullscreen></iframe>
+            </div>
+            <h3 style="font-family: var(--font-title); color: #fff; font-size: 1rem;">Valuación Aumentada con NotebookLM (Hoy GEMINI NotebookLM)</h3>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="video-showcase-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/GtpDPA2IA7A" title="Valuación Aumentada con NotebookLM - Clase 1" allowfullscreen></iframe>
+            </div>
+            <h3 style="font-family: var(--font-title); color: #fff; font-size: 1rem;">Valuación Aumentada con NotebookLM - Clase 1</h3>
+          </div>
+
+          <!-- Video 4 -->
+          <div class="video-showcase-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/7eX8_i21yww" title="Valuación Aumentada con NotebookLM - Clase 2" allowfullscreen></iframe>
+            </div>
+            <h3 style="font-family: var(--font-title); color: #fff; font-size: 1rem;">Valuación Aumentada con NotebookLM - Clase 2</h3>
+          </div>
+
+          <!-- Video 5 -->
+          <div class="video-showcase-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/L3HLPSLeOVA" title="Valuación Aumentada con NotebookLM - Clase 3" allowfullscreen></iframe>
+            </div>
+            <h3 style="font-family: var(--font-title); color: #fff; font-size: 1rem;">Valuación Aumentada con NotebookLM - Clase 3</h3>
+          </div>
+
+          <!-- Video 6 -->
+          <div class="video-showcase-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/fZ3EDx86LPo" title="Valuación Aumentada con NotebookLM - Clase 4" allowfullscreen></iframe>
+            </div>
+            <h3 style="font-family: var(--font-title); color: #fff; font-size: 1rem;">Valuación Aumentada con NotebookLM - Clase 4</h3>
+          </div>
+
+          <!-- Video 7 -->
+          <div class="video-showcase-card" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto; width: 100%;">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/AsbgVTAsHBE" title="Festival de Artefactos de Studio - NotebookLM [Valuación Inteligente]" allowfullscreen></iframe>
+            </div>
+            <h3 style="font-family: var(--font-title); color: #fff; font-size: 1rem;">Festival de Artefactos de Studio - NotebookLM [Valuación Inteligente]</h3>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: MATERIAL DEL CURSO -->
+    <section class="section-block" id="material">
+      <div class="container">
+        <div class="section-head">
+          <h2>Material del Curso (VAN - Clases 1 a 6)</h2>
+        </div>
+
+        <div class="catalog-grid">
+          <div class="catalog-card">
+            <span class="item-badge">Clase 1</span>
+            <div class="card-thumbnail"><img src="VAN - Clase 1.jpg" alt="VAN - Clase 1" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';"></div>
+            <h3>VAN - Clase 1</h3>
+            <p>Fundamentos iniciales y configuración de fuentes documentales en NotebookLM.</p>
+            <div class="card-footer" style="width:100%;">
+              <button class="btn btn-red" onclick="openViewer('VAN - Clase 1.pdf', 'VAN - Clase 1')" style="width:100%; justify-content:center;">📖 Leer PDF</button>
+            </div>
+          </div>
+
+          <div class="catalog-card">
+            <span class="item-badge">Clase 2</span>
+            <div class="card-thumbnail"><img src="VAN - Clase 2.jpg" alt="VAN - Clase 2" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';"></div>
+            <h3>VAN - Clase 2</h3>
+            <p>Estrategias de consulta avanzada y síntesis automatizada de informes.</p>
+            <div class="card-footer" style="width:100%;">
+              <button class="btn btn-red" onclick="openViewer('VAN - Clase 2.pdf', 'VAN - Clase 2')" style="width:100%; justify-content:center;">📖 Leer PDF</button>
+            </div>
+          </div>
+
+          <div class="catalog-card">
+            <span class="item-badge">Clase 3</span>
+            <div class="card-thumbnail"><img src="VAN - Clase 3.jpg" alt="VAN - Clase 3" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';"></div>
+            <h3>VAN - Clase 3</h3>
+            <p>Modelado de comparativa normativa y estandarización de criterios.</p>
+            <div class="card-footer" style="width:100%;">
+              <button class="btn btn-red" onclick="openViewer('VAN - Clase 3.pdf', 'VAN - Clase 3')" style="width:100%; justify-content:center;">📖 Leer PDF</button>
+            </div>
+          </div>
+
+          <div class="catalog-card">
+            <span class="item-badge">Clase 4</span>
+            <div class="card-thumbnail"><img src="VAN - Clase 4.jpg" alt="VAN - Clase 4" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';"></div>
+            <h3>VAN - Clase 4</h3>
+            <p>Auditoría de tasaciones y análisis crítico de datos de mercado.</p>
+            <div class="card-footer" style="width:100%;">
+              <button class="btn btn-red" onclick="openViewer('VAN - Clase 4.pdf', 'VAN - Clase 4')" style="width:100%; justify-content:center;">📖 Leer PDF</button>
+            </div>
+          </div>
+
+          <div class="catalog-card">
+            <span class="item-badge">Clase 5</span>
+            <div class="card-thumbnail"><img src="VAN - Clase 5.jpg" alt="VAN - Clase 5" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';"></div>
+            <h3>VAN - Clase 5</h3>
+            <p>Generación de artefactos de estudio y guías automatizadas de peritaje.</p>
+            <div class="card-footer" style="width:100%;">
+              <button class="btn btn-red" onclick="openViewer('VAN - Clase 5.pdf', 'VAN - Clase 5')" style="width:100%; justify-content:center;">📖 Leer PDF</button>
+            </div>
+          </div>
+
+          <div class="catalog-card">
+            <span class="item-badge">Clase 6</span>
+            <div class="card-thumbnail"><img src="VAN - Clase 6.jpg" alt="VAN - Clase 6" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';"></div>
+            <h3>VAN - Clase 6</h3>
+            <p>Conclusiones, buenas prácticas y despliegue integral del sistema.</p>
+            <div class="card-footer" style="width:100%;">
+              <button class="btn btn-red" onclick="openViewer('VAN - Clase 6.pdf', 'VAN - Clase 6')" style="width:100%; justify-content:center;">📖 Leer PDF</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: LECTURAS Y MATERIAL DE APOYO -->
+    <section class="section-block" id="lecturas">
+      <div class="container">
+        <div class="section-head">
+          <h2>Lecturas y Material de Apoyo</h2>
+        </div>
+
+        <!-- Bloque Principal -->
+        <h3 style="font-family: var(--font-title); color: #60a5fa; margin-bottom: 1.5rem; font-size: 1.4rem;">Manuales y Guías Fundamentales</h3>
+        <div class="catalog-grid" id="lecturasGridPrincipal" style="margin-bottom: 3rem;">
+          <!-- Generado por JS -->
+        </div>
+
+        <!-- Bloque Especializado -->
+        <h3 style="font-family: var(--font-title); color: #60a5fa; margin-bottom: 1.5rem; font-size: 1.4rem;">Documentos de Especialización y Normativa</h3>
+        <div class="catalog-grid" id="lecturasGridEspecializado">
+          <!-- Generado por JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p><strong>Escuela de Valuación Miguel Camacaro [EVMC]</strong> — © 2026 Miguel Camacaro Ediciones & Mundo Valor</p>
+      <p style="margin-top:0.4rem; opacity:0.7;">Curso Online: Valuación Aumentada con NotebookLM.</p>
+    </div>
+  </footer>
+
+  <!-- PDF Viewer Modal -->
+  <div class="viewer-modal" id="pdfModal">
+    <div class="viewer-content">
+      <div class="viewer-header">
+        <div class="viewer-title" id="modalTitle">Visor de Documento PDF</div>
+        <button class="viewer-close" onclick="closeViewer()">✕</button>
+      </div>
+      <div class="viewer-body">
+        <iframe id="pdfFrame" src="" title="Visor de PDF"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const lecturasPrincipales = [
+      { id: 1, title: "1. Arítículo 2026", file: "1. Arítículo 2026.pdf", img: "1. Arítículo 2026.jpg" },
+      { id: 2, title: "2. Curso VAN 2026", file: "2. Curso VAN 2026.pdf", img: "2. Curso VAN 2026.jpg" },
+      { id: 3, title: "3. Curso NotebookLM - Google Skills", file: "3. Curso NotebookLM - Google Skills.pdf", img: "3. Curso NotebookLM - Google Skills.jpg" }
+    ];
+
+    const lecturasEspecializadas = [
+      { id: 1, title: "1. Estrategia y Nomenclatura RAG-First", file: "1. Estrategia y Nomenclatura RAG-First.pdf", img: "1. Estrategia y Nomenclatura RAG-First.jpg" },
+      { id: 2, title: "2. Estudio Taxonomía + RAG FIRST", file: "2. Estudio Taxonomía + RAG FIRST.pdf", img: "2. Estudio Taxonomía + RAG FIRST.jpg" },
+      { id: 3, title: "3. Hub and spoke", file: "3. Hub and spoke.pdf", img: "3. Hub and spoke.jpg" },
+      { id: 4, title: "4. IVS_2028_Trust_Blueprint", file: "4. IVS_2028_Trust_Blueprint.pdf", img: "4. IVS_2028_Trust_Blueprint.jpg" },
+      { id: 5, title: "5. Maestría en NotebookLM", file: "5. Maestría en NotebookLM.pdf", img: "5. Maestría en NotebookLM.jpg" },
+      { id: 6, title: "6. RAG-First en NotebookLM", file: "6. RAG-First en NotebookLM.pdf", img: "6. RAG-First en NotebookLM.jpg" },
+      { id: 7, title: "7. Informe de prompts optimizados", file: "7. Informe de prompts optimizados.pdf", img: "7. Informe de prompts optimizados.jpg" },
+      { id: 8, title: "8. Normas internacionales (IVS 2025)", file: "8. Normas internacionales (IVS 2025).pdf", img: "8. Normas internacionales (IVS 2025).jpg" },
+      { id: 9, title: "9. Normas nacionales de valuación (ABNT NBR 14653 -1 y2)", file: "9. Normas nacionales de valuación (ABNT NBR 14653 -1 y2).pdf", img: "9. Normas nacionales de valuación (ABNT NBR 14653 -1 y2).jpg" },
+      { id: 10, title: "10. Normas de Mediciones (IPMS-all-buildings)", file: "10. Normas de Mediciones (IPMS-all-buildings).pdf", img: "10. Normas de Mediciones (IPMS-all-buildings).jpg" },
+      { id: 11, title: "11. Valoración_Estándares_Globales_a_Local", file: "11. Valoración_Estándares_Globales_a_Local.pdf", img: "11. Valoración_Estándares_Globales_a_Local.jpg" },
+      { id: 12, title: "12. The_Prompt_Maestro", file: "12. The_Prompt_Maestro.pdf", img: "12. The_Prompt_Maestro.jpg" },
+      { id: 13, title: "13. Arquitectos de prompts", file: "13. Arquitectos de prompts.pdf", img: "13. Arquitectos de prompts.jpg" }
+    ];
+
+    function renderLecturas() {
+      const gridPrin = document.getElementById('lecturasGridPrincipal');
+      if (gridPrin) {
+        gridPrin.innerHTML = '';
+        lecturasPrincipales.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'catalog-card';
+          card.innerHTML = `
+            <span class="item-badge">Apoyo ${item.id}</span>
+            <div class="card-thumbnail"><img src="${item.img}" alt="${item.title}" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';"></div>
+            <h3>${item.title}</h3>
+            <p>Manual fundamental de referencia metodológica y capacitación oficial.</p>
+            <div class="card-footer" style="width:100%;">
+              <button class="btn btn-red" onclick="openViewer('${item.file}', '${item.title}')" style="width:100%; justify-content:center;">📖 Leer PDF</button>
+            </div>
+          `;
+          gridPrin.appendChild(card);
+        });
+      }
+
+      const gridEsp = document.getElementById('lecturasGridEspecializado');
+      if (gridEsp) {
+        gridEsp.innerHTML = '';
+        lecturasEspecializadas.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'catalog-card';
+          card.innerHTML = `
+            <span class="item-badge">Especializado</span>
+            <div class="card-thumbnail"><img src="${item.img}" alt="${item.title}" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';"></div>
+            <h3>${item.title}</h3>
+            <p>Documento técnico avanzado para la arquitectura de prompts y marcos normativos.</p>
+            <div class="card-footer" style="width:100%;">
+              <button class="btn btn-red" onclick="openViewer('${item.file}', '${item.title}')" style="width:100%; justify-content:center;">📖 Leer PDF</button>
+            </div>
+          `;
+          gridEsp.appendChild(card);
+        });
+      }
+    }
+
+    function openViewer(pdfFile, title) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('pdfFrame').src = pdfFile;
+      document.getElementById('pdfModal').style.display = 'flex';
+    }
+
+    function closeViewer() {
+      document.getElementById('modalTitle').innerText = "";
+      document.getElementById('pdfFrame').src = '';
+      document.getElementById('pdfModal').style.display = 'none';
+    }
+
+    window.onload = () => {
+      renderLecturas();
+    };
+  </script>
+</body>
+</html>
