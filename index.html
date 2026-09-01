@@ -42,7 +42,6 @@
 
     .container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
 
-    /* Top Navigation Bar */
     header {
       background: rgba(7, 12, 24, 0.98);
       backdrop-filter: blur(12px);
@@ -83,7 +82,6 @@
     .btn-donate { background: linear-gradient(135deg, #1d4ed8, #2563eb); color: #ffffff; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); border: 1px solid rgba(255, 255, 255, 0.25); }
     .btn-donate:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6); }
 
-    /* Hero / Portada del Curso */
     .hero {
       padding: 5rem 0 4.5rem;
       background: radial-gradient(circle at 50% 10%, rgba(23, 37, 84, 0.5) 0%, transparent 80%);
@@ -109,12 +107,10 @@
     }
     .hero-banner-card img { width: 100%; height: auto; border-radius: 14px; display: block; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
 
-    /* Secciones Generales */
     .section-block { padding: 4.5rem 0; border-bottom: 1px solid var(--border-card); text-align: left; }
     .section-head { text-align: center; margin-bottom: 3rem; }
     .section-head h2 { font-family: var(--font-title); font-size: 2.2rem; color: #fff; margin-bottom: 0.5rem; }
 
-    /* Grilla de 2 Columnas */
     .catalog-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
     @media (max-width: 768px) { .catalog-grid { grid-template-columns: 1fr; } }
 
@@ -131,24 +127,16 @@
     .catalog-card h3 { font-size: 1.15rem; color: #fff; margin-bottom: 0.8rem; line-height: 1.3; padding-right: 4rem; }
     .catalog-card p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5; text-align: justify; }
 
-    /* Contenedor de miniaturas estrictamente centrado */
     .card-thumbnail {
       width: 100%; height: 260px; background: #111827; border-radius: 10px; margin-bottom: 1.2rem;
       display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; position: relative;
     }
     .card-thumbnail img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-      margin: auto;
+      max-width: 100%; max-height: 100%; width: auto; height: auto;
+      object-fit: contain; object-position: center; display: block; margin: auto;
     }
     .card-footer { display: flex; align-items: center; justify-content: flex-end; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.2rem; }
 
-    /* Video Grid a 2 Columnas (Sin títulos dobles) */
     .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
     @media (max-width: 768px) { .video-grid { grid-template-columns: 1fr; } }
 
@@ -161,7 +149,6 @@
     .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 12px; overflow: hidden; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.1); }
     .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-    /* Author Section */
     .author-card-centered {
       background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 24px; padding: 3rem 2.5rem; max-width: 850px; margin: 0 auto; text-align: center;
@@ -176,10 +163,8 @@
     .author-card-centered .subtitle { color: #60a5fa; font-weight: 700; font-size: 0.95rem; margin-bottom: 1.5rem; }
     .author-quote { font-family: var(--font-reading); font-size: 1.05rem; color: #cbd5e1; line-height: 1.8; font-style: italic; text-align: justify; }
 
-    /* Footer */
     footer { border-top: 1px solid var(--border-card); padding: 3rem 0; text-align: center; color: var(--text-muted); font-size: 0.85rem; background: rgba(7, 12, 24, 0.95); }
 
-    /* Modal PDF Viewer */
     .viewer-modal {
       display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(7, 12, 24, 0.92); backdrop-filter: blur(10px); z-index: 1000;
@@ -212,7 +197,7 @@
     <div class="container nav-wrap">
       <a href="#" class="brand-logo-left" title="Miguel Camacaro Ediciones">
         <div class="logo-container">
-          <img src="LogoMCE_2.png" alt="Miguel Camacaro Ediciones" onerror="this.style.display='none'">
+          <img src="LogoMCE.png" alt="Miguel Camacaro Ediciones" onerror="this.style.display='none'">
         </div>
       </a>
 
@@ -221,13 +206,13 @@
         <a href="#autor">Autor</a>
         <a href="#videos">Videos</a>
         <a href="#material">Material del Curso</a>
-        <a href="#lecturas">Lecturas y Apoyo</a>
+        <a href="#lecturas">Lecturas</a>
         <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">☕ Aportar / Donar</a>
       </nav>
 
       <a href="#" class="brand-logo-right" title="Mundo Valor">
         <div class="logo-container">
-          <img src="Mundovalor_2.png" alt="Mundo Valor" onerror="this.style.display='none'">
+          <img src="Mundovalor.png" alt="Mundo Valor" onerror="this.style.display='none'">
         </div>
       </a>
     </div>
@@ -251,7 +236,7 @@
         </div>
 
         <div class="hero-banner-card">
-          <img src="Foto-Portada.jpg" alt="Portada Valuación Aumentada con NotebookLM" onerror="this.onerror=null; this.src='LogoMCE_2.png';">
+          <img src="Foto-Portada.jpg" alt="Portada Valuación Aumentada con NotebookLM" onerror="this.onerror=null; this.src='LogoMCE.png';">
         </div>
       </div>
     </section>
@@ -286,49 +271,43 @@
           <!-- Video 1 -->
           <div class="video-showcase-card">
             <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/Koh0iXACwUk" title="Presentación del curso Valuación Aumentada con NotebookLM" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/Koh0iXACwUk" title="Valuación Aumentada con NotebookLM - Clase 1" allowfullscreen></iframe>
             </div>
-            <h3 style="font-family: var(--font-title); color: #fff; font-size: 0.95rem;">Presentación del curso “Valuación Aumentada con NotebookLM (Hoy Gemini Notebook)”</h3>
           </div>
 
           <!-- Video 2 -->
           <div class="video-showcase-card">
             <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/Xt_Lm8_49HY" title="Valuación Aumentada con NotebookLM (Hoy GEMINI NotebookLM)" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/Xt_Lm8_49HY" title="Valuación Aumentada con NotebookLM - Clase 2" allowfullscreen></iframe>
             </div>
-            <h3 style="font-family: var(--font-title); color: #fff; font-size: 0.95rem;">Valuación Aumentada con NotebookLM (Hoy GEMINI NotebookLM)</h3>
           </div>
 
           <!-- Video 3 -->
           <div class="video-showcase-card">
             <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/GtpDPA2IA7A" title="Valuación Aumentada con NotebookLM - Clase 1" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/GtpDPA2IA7A" title="Valuación Aumentada con NotebookLM - Clase 3" allowfullscreen></iframe>
             </div>
-            <h3 style="font-family: var(--font-title); color: #fff; font-size: 0.95rem;">Valuación Aumentada con NotebookLM - Clase 1</h3>
           </div>
 
           <!-- Video 4 -->
           <div class="video-showcase-card">
             <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/7eX8_i21yww" title="Valuación Aumentada con NotebookLM - Clase 2" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/7eX8_i21yww" title="Valuación Aumentada con NotebookLM - Clase 4" allowfullscreen></iframe>
             </div>
-            <h3 style="font-family: var(--font-title); color: #fff; font-size: 0.95rem;">Valuación Aumentada con NotebookLM - Clase 2</h3>
           </div>
 
           <!-- Video 5 -->
           <div class="video-showcase-card">
             <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/L3HLPSLeOVA" title="Valuación Aumentada con NotebookLM - Clase 3" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/L3HLPSLeOVA" title="Valuación Aumentada con NotebookLM - Clase 5" allowfullscreen></iframe>
             </div>
-            <h3 style="font-family: var(--font-title); color: #fff; font-size: 0.95rem;">Valuación Aumentada con NotebookLM - Clase 3</h3>
           </div>
 
           <!-- Video 6 -->
           <div class="video-showcase-card">
             <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/fZ3EDx86LPo" title="Valuación Aumentada con NotebookLM - Clase 4" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/fZ3EDx86LPo" title="Valuación Aumentada con NotebookLM - Clase 6" allowfullscreen></iframe>
             </div>
-            <h3 style="font-family: var(--font-title); color: #fff; font-size: 0.95rem;">Valuación Aumentada con NotebookLM - Clase 4</h3>
           </div>
 
           <!-- Video 7 (Centrado) -->
@@ -336,7 +315,6 @@
             <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/AsbgVTAsHBE" title="Festival de Artefactos de Studio - NotebookLM [Valuación Inteligente]" allowfullscreen></iframe>
             </div>
-            <h3 style="font-family: var(--font-title); color: #fff; font-size: 0.95rem;">Festival de Artefactos de Studio - NotebookLM [Valuación Inteligente]</h3>
           </div>
         </div>
 
@@ -353,7 +331,7 @@
         <div class="catalog-grid">
           <div class="catalog-card">
             <span class="item-badge">Clase 1</span>
-            <div class="card-thumbnail"><img src="VAN - Clase 1.jpg" alt="VAN - Clase 1" onerror="this.onerror=null; this.src='LogoMCE_2.png';"></div>
+            <div class="card-thumbnail"><img src="VAN - Clase 1.JPG" alt="VAN - Clase 1" onerror="this.onerror=null; this.src='LogoMCE.png';"></div>
             <h3>VAN - Clase 1</h3>
             <p>Fundamentos iniciales y configuración de fuentes documentales en NotebookLM.</p>
             <div class="card-footer" style="width:100%;">
@@ -363,7 +341,7 @@
 
           <div class="catalog-card">
             <span class="item-badge">Clase 2</span>
-            <div class="card-thumbnail"><img src="VAN - Clase 2.jpg" alt="VAN - Clase 2" onerror="this.onerror=null; this.src='LogoMCE_2.png';"></div>
+            <div class="card-thumbnail"><img src="VAN - Clase 2.JPG" alt="VAN - Clase 2" onerror="this.onerror=null; this.src='LogoMCE.png';"></div>
             <h3>VAN - Clase 2</h3>
             <p>Estrategias de consulta avanzada y síntesis automatizada de informes.</p>
             <div class="card-footer" style="width:100%;">
@@ -373,7 +351,7 @@
 
           <div class="catalog-card">
             <span class="item-badge">Clase 3</span>
-            <div class="card-thumbnail"><img src="VAN - Clase 3.jpg" alt="VAN - Clase 3" onerror="this.onerror=null; this.src='LogoMCE_2.png';"></div>
+            <div class="card-thumbnail"><img src="VAN - Clase 3.JPG" alt="VAN - Clase 3" onerror="this.onerror=null; this.src='LogoMCE.png';"></div>
             <h3>VAN - Clase 3</h3>
             <p>Modelado de comparativa normativa y estandarización de criterios.</p>
             <div class="card-footer" style="width:100%;">
@@ -383,7 +361,7 @@
 
           <div class="catalog-card">
             <span class="item-badge">Clase 4</span>
-            <div class="card-thumbnail"><img src="VAN - Clase 4.jpg" alt="VAN - Clase 4" onerror="this.onerror=null; this.src='LogoMCE_2.png';"></div>
+            <div class="card-thumbnail"><img src="VAN - Clase 4.JPG" alt="VAN - Clase 4" onerror="this.onerror=null; this.src='LogoMCE.png';"></div>
             <h3>VAN - Clase 4</h3>
             <p>Auditoría de tasaciones y análisis crítico de datos de mercado.</p>
             <div class="card-footer" style="width:100%;">
@@ -393,7 +371,7 @@
 
           <div class="catalog-card">
             <span class="item-badge">Clase 5</span>
-            <div class="card-thumbnail"><img src="VAN - Clase 5.jpg" alt="VAN - Clase 5" onerror="this.onerror=null; this.src='LogoMCE_2.png';"></div>
+            <div class="card-thumbnail"><img src="VAN - Clase 5.JPG" alt="VAN - Clase 5" onerror="this.onerror=null; this.src='LogoMCE.png';"></div>
             <h3>VAN - Clase 5</h3>
             <p>Generación de artefactos de estudio y guías automatizadas de peritaje.</p>
             <div class="card-footer" style="width:100%;">
@@ -403,7 +381,7 @@
 
           <div class="catalog-card">
             <span class="item-badge">Clase 6</span>
-            <div class="card-thumbnail"><img src="VAN - Clase 6.jpg" alt="VAN - Clase 6" onerror="this.onerror=null; this.src='LogoMCE_2.png';"></div>
+            <div class="card-thumbnail"><img src="VAN - Clase 6.JPG" alt="VAN - Clase 6" onerror="this.onerror=null; this.src='LogoMCE.png';"></div>
             <h3>VAN - Clase 6</h3>
             <p>Conclusiones, buenas prácticas y despliegue integral del sistema.</p>
             <div class="card-footer" style="width:100%;">
@@ -414,20 +392,18 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 4: LECTURAS Y MATERIAL DE APOYO -->
+    <!-- SECCIÓN 4: LECTURAS -->
     <section class="section-block" id="lecturas">
       <div class="container">
         <div class="section-head">
-          <h2>Lecturas y Material de Apoyo</h2>
+          <h2>Lecturas</h2>
         </div>
 
-        <!-- Bloque Principal -->
         <h3 style="font-family: var(--font-title); color: #60a5fa; margin-bottom: 1.5rem; font-size: 1.4rem;">Manuales y Guías Fundamentales</h3>
         <div class="catalog-grid" id="lecturasGridPrincipal" style="margin-bottom: 3rem;">
           <!-- Generado por JS -->
         </div>
 
-        <!-- Bloque Especializado -->
         <h3 style="font-family: var(--font-title); color: #60a5fa; margin-bottom: 1.5rem; font-size: 1.4rem;">Documentos de Especialización y Normativa</h3>
         <div class="catalog-grid" id="lecturasGridEspecializado">
           <!-- Generado por JS -->
@@ -466,16 +442,16 @@
     ];
 
     const lecturasEspecializadas = [
-      { id: 1, title: "1. Estrategia y Nomenclatura RAG-First", file: "1. Estrategia y Nomenclatura RAG-First.pdf", img: "1. Estrategia y Nomenclatura RAG-First.jpg" },
+      { id: 1, title: "1. Estrategia y Nomenclatura RAG-First", file: "1. Estrategia y Nomenclatura RAG First.pdf", img: "1. Estrategia y Nomenclatura RAG First.jpg" },
       { id: 2, title: "2. Estudio Taxonomía + RAG FIRST", file: "2. Estudio Taxonomía + RAG FIRST.pdf", img: "2. Estudio Taxonomía + RAG FIRST.jpg" },
       { id: 3, title: "3. Hub and spoke", file: "3. Hub and spoke.pdf", img: "3. Hub and spoke.jpg" },
       { id: 4, title: "4. IVS_2028_Trust_Blueprint", file: "4. IVS_2028_Trust_Blueprint.pdf", img: "4. IVS_2028_Trust_Blueprint.jpg" },
       { id: 5, title: "5. Maestría en NotebookLM", file: "5. Maestría en NotebookLM.pdf", img: "5. Maestría en NotebookLM.jpg" },
-      { id: 6, title: "6. RAG-First en NotebookLM", file: "6. RAG-First en NotebookLM.pdf", img: "6. RAG-First en NotebookLM.jpg" },
+      { id: 6, title: "6. RAG-First en NotebookLM", file: "6. RAG First en NotebookLM.pdf", img: "6. RAG First en NotebookLM.jpg" },
       { id: 7, title: "7. Informe de prompts optimizados", file: "7. Informe de prompts optimizados.pdf", img: "7. Informe de prompts optimizados.jpg" },
       { id: 8, title: "8. Normas internacionales (IVS 2025)", file: "8. Normas internacionales (IVS 2025).pdf", img: "8. Normas internacionales (IVS 2025).jpg" },
       { id: 9, title: "9. Normas nacionales de valuación (ABNT NBR 14653 -1 y2)", file: "9. Normas nacionales de valuación (ABNT NBR 14653 -1 y2).pdf", img: "9. Normas nacionales de valuación (ABNT NBR 14653 -1 y2).jpg" },
-      { id: 10, title: "10. Normas de Mediciones (IPMS-all-buildings)", file: "10. Normas de Mediciones (IPMS-all-buildings).pdf", img: "10. Normas de Mediciones (IPMS-all-buildings).jpg" },
+      { id: 10, title: "10. Normas de Mediciones (IPMS-all-buildings)", file: "10. Normas de Mediciones (IPMS all buildings).pdf", img: "10. Normas de Mediciones (IPMS all buildings).jpg" },
       { id: 11, title: "11. Valoración_Estándares_Globales_a_Local", file: "11. Valoración_Estándares_Globales_a_Local.pdf", img: "11. Valoración_Estándares_Globales_a_Local.jpg" },
       { id: 12, title: "12. The_Prompt_Maestro", file: "12. The_Prompt_Maestro.pdf", img: "12. The_Prompt_Maestro.jpg" },
       { id: 13, title: "13. Arquitectos de prompts", file: "13. Arquitectos de prompts.pdf", img: "13. Arquitectos de prompts.jpg" }
@@ -490,7 +466,7 @@
           card.className = 'catalog-card';
           card.innerHTML = `
             <span class="item-badge">Apoyo ${item.id}</span>
-            <div class="card-thumbnail"><img src="${item.img}" alt="${item.title}" onerror="this.onerror=null; this.src='LogoMCE_2.png';"></div>
+            <div class="card-thumbnail"><img src="${item.img}" alt="${item.title}" onerror="this.onerror=null; this.src='LogoMCE.png';"></div>
             <h3>${item.title}</h3>
             <p>Manual fundamental de referencia metodológica y capacitación oficial.</p>
             <div class="card-footer" style="width:100%;">
@@ -509,7 +485,7 @@
           card.className = 'catalog-card';
           card.innerHTML = `
             <span class="item-badge">Especializado</span>
-            <div class="card-thumbnail"><img src="${item.img}" alt="${item.title}" onerror="this.onerror=null; this.src='LogoMCE_2.png';"></div>
+            <div class="card-thumbnail"><img src="${item.img}" alt="${item.title}" onerror="this.onerror=null; this.src='LogoMCE.png';"></div>
             <h3>${item.title}</h3>
             <p>Documento técnico avanzado para la arquitectura de prompts y marcos normativos.</p>
             <div class="card-footer" style="width:100%;">
